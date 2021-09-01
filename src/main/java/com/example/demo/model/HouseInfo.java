@@ -1,33 +1,29 @@
 package com.example.demo.model;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = " user")
 @Getter
 @Setter
+@Table(name = "HOUSE_INFO")
 @NoArgsConstructor
-public class User {
-    @Id
-    @GeneratedValue
-    private int id;
+public class HouseInfo {
 
-    @Column(name = "name")
-    private String name;
+    @GeneratedValue
+    @Id
+    private Integer id;
+
+    @Column
+    private String text;
 
     @ManyToOne
     @JoinColumn(name = "HOUSE_ID")
     private House house;
 
-    @Version
-    private Long version;
-    public User(String name) {
-        this.name = name;
-    }
 }
